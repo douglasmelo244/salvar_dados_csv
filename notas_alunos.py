@@ -43,11 +43,17 @@ class SistemaEstudantes:
         self.salvar_dados() 
         print('Estudante adicionado com sucesso')    
 
-    def listar_estudantes(self):
-        if not  self.estudantes:
-            print('Nenhum estudante cadastrado')
-        for aluno in enumerate(self.estudantes):
-            print(aluno)  
+   def listar_estudantes(self):
+        print(f"{'Nome':<25}{'Idade':<10}{'Matematica':<15}{'Ciencias':<15}{'Ingles':<15}")
+        print('-' * 70)
+        if not self.estudantes:
+            print('A lista está vazia.')
+            print('-' * 20)
+            return
+        
+        for indice, item in enumerate(self.estudantes):
+            print(f'{indice} - Nome: {item["Nome"]:<15}  {item["Idade"]:<10} {item["Nota_Matematica"]:<13} {item["Nota_Ciencias"]:<13} {item["Nota_Ingles"]}')
+        print('-' * 20)
 
     def atualizar(self):
         self.listar_estudantes()
